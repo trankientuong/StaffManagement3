@@ -32,7 +32,7 @@
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="salary" Type="float" Nullable="false" />
         </EntityType>
-        <Association Name="FK__NHANVIEN__room__1273C1CD">
+        <Association Name="FK__NHANVIEN__room__47DBAE45">
           <End Role="PHONGBAN" Type="Self.PHONGBAN" Multiplicity="0..1" />
           <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="*" />
           <ReferentialConstraint>
@@ -60,7 +60,7 @@
           <EntitySet Name="NHANVIEN" EntityType="Self.NHANVIEN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="PHONGBAN" EntityType="Self.PHONGBAN" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="SalaryStaff" EntityType="Self.SalaryStaff" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK__NHANVIEN__room__1273C1CD" Association="Self.FK__NHANVIEN__room__1273C1CD">
+          <AssociationSet Name="FK__NHANVIEN__room__47DBAE45" Association="Self.FK__NHANVIEN__room__47DBAE45">
             <End Role="PHONGBAN" EntitySet="PHONGBAN" />
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
           </AssociationSet>
