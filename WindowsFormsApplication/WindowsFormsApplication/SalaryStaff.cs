@@ -18,5 +18,6 @@ namespace WindowsFormsApplication
         public double salary { get; set; }
     
         public virtual NHANVIEN NHANVIEN { get; set; }
+        public virtual PHONGBAN PHONGBAN { get; set; }
     }
 }

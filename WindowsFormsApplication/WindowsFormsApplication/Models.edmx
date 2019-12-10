@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="QLNV1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="QLNV1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="NHANVIEN">
           <Key>
             <PropertyRef Name="Id" />
@@ -44,11 +44,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK__SalaryStaff__Id__239E4DCF">
-          <End Role="NHANVIEN" Type="Self.NHANVIEN" Multiplicity="1" />
+        <Association Name="FK__SalaryStaff__Id__34C8D9D1">
+          <End Role="PHONGBAN" Type="Self.PHONGBAN" Multiplicity="1" />
           <End Role="SalaryStaff" Type="Self.SalaryStaff" Multiplicity="0..1" />
           <ReferentialConstraint>
-            <Principal Role="NHANVIEN">
+            <Principal Role="PHONGBAN">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="SalaryStaff">
@@ -64,13 +64,12 @@
             <End Role="PHONGBAN" EntitySet="PHONGBAN" />
             <End Role="NHANVIEN" EntitySet="NHANVIEN" />
           </AssociationSet>
-          <AssociationSet Name="FK__SalaryStaff__Id__239E4DCF" Association="Self.FK__SalaryStaff__Id__239E4DCF">
-            <End Role="NHANVIEN" EntitySet="NHANVIEN" />
+          <AssociationSet Name="FK__SalaryStaff__Id__34C8D9D1" Association="Self.FK__SalaryStaff__Id__34C8D9D1">
+            <End Role="PHONGBAN" EntitySet="PHONGBAN" />
             <End Role="SalaryStaff" EntitySet="SalaryStaff" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="QLNV1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -96,6 +95,7 @@
           <Property Name="room" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="position" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="NHANVIENs" Relationship="Self.FK__NHANVIEN__room__1273C1CD" FromRole="PHONGBAN" ToRole="NHANVIEN" />
+          <NavigationProperty Name="SalaryStaff" Relationship="QLNV1Model.FK__SalaryStaff__Id__34C8D9D1" FromRole="PHONGBAN" ToRole="SalaryStaff" />
         </EntityType>
         <EntityType Name="SalaryStaff">
           <Key>
@@ -104,6 +104,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="salary" Type="Double" Nullable="false" />
           <NavigationProperty Name="NHANVIEN" Relationship="Self.FK__SalaryStaff__Id__239E4DCF" FromRole="SalaryStaff" ToRole="NHANVIEN" />
+          <NavigationProperty Name="PHONGBAN" Relationship="QLNV1Model.FK__SalaryStaff__Id__34C8D9D1" FromRole="SalaryStaff" ToRole="PHONGBAN" />
         </EntityType>
         <Association Name="FK__NHANVIEN__room__1273C1CD">
           <End Role="PHONGBAN" Type="Self.PHONGBAN" Multiplicity="0..1" />
@@ -141,7 +142,23 @@
             <End Role="NHANVIEN" EntitySet="NHANVIENs" />
             <End Role="SalaryStaff" EntitySet="SalaryStaffs" />
           </AssociationSet>
+          <AssociationSet Name="FK__SalaryStaff__Id__34C8D9D1" Association="QLNV1Model.FK__SalaryStaff__Id__34C8D9D1">
+            <End Role="PHONGBAN" EntitySet="PHONGBANs" />
+            <End Role="SalaryStaff" EntitySet="SalaryStaffs" />
+          </AssociationSet>
         </EntityContainer>
+        <Association Name="FK__SalaryStaff__Id__34C8D9D1">
+          <End Type="QLNV1Model.PHONGBAN" Role="PHONGBAN" Multiplicity="1" />
+          <End Type="QLNV1Model.SalaryStaff" Role="SalaryStaff" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="PHONGBAN">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="SalaryStaff">
+              <PropertyRef Name="Id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->

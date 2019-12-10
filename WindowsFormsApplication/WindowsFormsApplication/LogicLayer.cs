@@ -58,5 +58,11 @@ namespace WindowsFormsApplication
             var staff = db.NHANVIENs.Find(id);
             return staff;
         }
+        public SalaryStaff[] GetSalary()
+        {
+            var db = new QLNV1Entities();
+
+            return db.SalaryStaffs.ToArray();
+        }
     }
 }

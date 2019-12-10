@@ -24,5 +24,6 @@ namespace WindowsFormsApplication
         public string position { get; set; }
     
         public virtual ICollection<NHANVIEN> NHANVIENs { get; set; }
+        public virtual SalaryStaff SalaryStaff { get; set; }
     }
 }
